@@ -1,0 +1,5 @@
+OTA updates
+
+HW WDT
+test wifi autoconnect reconnect
+Diagnostic of free memory free HEap, ESP.getFreeHeap().
