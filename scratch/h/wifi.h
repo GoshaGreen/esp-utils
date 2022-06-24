@@ -101,16 +101,22 @@ int setupWifi() {
         WiFi.setAutoReconnect(true);
     //    WiFi.persistent(false);
     }
-    WiFi.printDiag(Serial);
-    Serial.setDebugOutput(true);
+    // WiFi.printDiag(Serial);
+    // Serial.setDebugOutput(true);
+
+    for (uint i = 0; i < WIFI_CONNECTION_TIMOUT_SEC; i++) {
+        Serial.print(".");
+        Serial.print("IP address: ");
+        Serial.println(WiFi.localIP());
+    }
 
     loopWifi();
     return WIFI_SUCCESS;
 }
 
 void loopWifi() {
-    dPrint(String() + WiFi.SSID() + " : " + ((WiFi.status() == WL_CONNECTED)? "connected": "not connected")+ ", Status:" + WiFi.status());
-    wifiMulti.run(WIFI_CONNECTION_TIMOUT_SEC*1000);
+    // dPrint(String() + WiFi.SSID() + " : " + ((WiFi.status() == WL_CONNECTED)? "connected": "not connected")+ ", Status:" + WiFi.status());
+    // wifiMulti.run(WIFI_CONNECTION_TIMOUT_SEC*1000);
     // if (wifiMulti.run() != WL_CONNECTED) { // check status of wifi. 
     
 

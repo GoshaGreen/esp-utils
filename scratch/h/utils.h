@@ -37,16 +37,25 @@ void utilsSetup() {
     }
 #endif // WIFI_DISABLE
 
-#ifdef OTA
-#endif // OTA
+#ifndef OTA_DISABLE
+    errCode = setupOTA();
+        if (errCode) {
+        dPrint(String("OTA initialization error: ") + errCode);
+    }
+#endif // OTA_DISABLE
 
 }
 
 void utilsLoop() {
+
 #ifndef WIFI_DISABLE
     loopWifi();
 #endif // WIFI_DISABLE
 // ESP.getFreeHeap()
+    
+#ifndef OTA_DISABLE
+    loopOTA();
+#endif // OTA_DISABLE
 
 }
 

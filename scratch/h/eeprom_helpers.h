@@ -126,7 +126,7 @@ int eep_resize(byte id, byte size) {
     endOffset += sizes[MAX_ALLOCATION_ENTRIES-1];
     unsigned int count = endOffset - startOffset;
 
-    // check bondaries
+    // TODO: check bondaries
 
     sizes[id] = size;
 

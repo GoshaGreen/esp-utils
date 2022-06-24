@@ -2,4 +2,7 @@ OTA updates
 
 HW WDT
 test wifi autoconnect reconnect
-Diagnostic of free memory free HEap, ESP.getFreeHeap().
+    turn on device when there are not any network
+    disable network, check reconnect to another network 
+    disable all network, check reconnect
+Diagnostic of free memory free Heap, ESP.getFreeHeap().

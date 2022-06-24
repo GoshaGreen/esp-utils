@@ -10,7 +10,7 @@
 #endif // DEVICE_NAME
 
 template <typename T>
-inline void dPrint(const T msg);
+inline void dPrint(const T msg, bool ln = true);
 inline void dPrintInit();
 
 inline void dPrintInit() {
@@ -26,11 +26,12 @@ inline void dPrintInit() {
 }
 
 template <typename T>
-inline void dPrint(const T msg) { // debug print to console
+inline void dPrint(const T msg, bool ln) { // debug print to console
 #ifndef SERIAL_DEBUG_DISABLE
     Serial.print(DEVICE_NAME);
     Serial.print(": ");
-    Serial.println(String(msg));
+    if (ln) {Serial.println(String(msg));}
+    else {Serial.print(String(msg));}
 #endif // SERIAL_DEBUG_DISABLE
 }
 
